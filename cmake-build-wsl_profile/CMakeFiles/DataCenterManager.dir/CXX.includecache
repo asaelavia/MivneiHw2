@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/d/Users/Avia/CLionProjects/hw2/AVLTree.h
+
+/mnt/d/Users/Avia/CLionProjects/hw2/Auxiliaries.h
+iostream
+-
+
+/mnt/d/Users/Avia/CLionProjects/hw2/DataCenter.h
+Auxiliaries.h
+/mnt/d/Users/Avia/CLionProjects/hw2/Auxiliaries.h
+library1.h
+/mnt/d/Users/Avia/CLionProjects/hw2/library1.h
+iostream
+-
+
+/mnt/d/Users/Avia/CLionProjects/hw2/DataCenterManager.h
+AVLTree.h
+/mnt/d/Users/Avia/CLionProjects/hw2/AVLTree.h
+DataCenter.h
+/mnt/d/Users/Avia/CLionProjects/hw2/DataCenter.h
+
+/mnt/d/Users/Avia/CLionProjects/hw2/library1.cpp
+library1.h
+/mnt/d/Users/Avia/CLionProjects/hw2/library1.h
+DataCenterManager.h
+/mnt/d/Users/Avia/CLionProjects/hw2/DataCenterManager.h
+
+/mnt/d/Users/Avia/CLionProjects/hw2/library1.h
+

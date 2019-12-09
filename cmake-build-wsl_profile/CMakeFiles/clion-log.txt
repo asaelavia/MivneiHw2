@@ -1,0 +1,4 @@
+/mnt/d/Downloads/cmake-3.16.0-Linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" /mnt/d/Users/Avia/CLionProjects/hw2
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/d/Users/Avia/CLionProjects/hw2/cmake-build-wsl_profile

@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/hw2.dir/main.cpp.o CMakeFiles/hw2.dir/DataCenter.cpp.o CMakeFiles/hw2.dir/library1.cpp.o CMakeFiles/hw2.dir/Auxiliaries.cpp.o  -o hw2 

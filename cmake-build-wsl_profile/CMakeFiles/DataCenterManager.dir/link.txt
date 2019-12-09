@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/DataCenterManager.dir/library1.cpp.o CMakeFiles/DataCenterManager.dir/main1.cpp.o  -o DataCenterManager 
