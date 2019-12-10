@@ -56,10 +56,6 @@ public:
 
     DataCenter(int id, int numOfServers);
 
-    int getLinuxServerCounter();
-
-    int getWindowsServerCounter();
-
     int getLinsInDb();
 
     int getWinsInDb();
@@ -79,17 +75,8 @@ DataCenter::DataCenter(int id, int numOfServers) {
     serversArray = new ServerData[numOfServers];
     for (int i = 0; i < numOfServers; ++i) {
         serversArray[i].setServerId(i);
-        linuxServers.add(&serversArray[i]);
-        serversArray[i].setListPointer(linuxServers.tail);
+        serversArray[i].setListPointer(linuxServers.add(&serversArray[i]));
     }
-}
-
-int DataCenter::getLinuxServerCounter() {
-    return linuxCounter;
-}
-
-int DataCenter::getWindowsServerCounter() {
-    return windowsCounter;
 }
 
 DataCenter::~DataCenter() {
@@ -104,10 +91,10 @@ StatusType DataCenter::freeServerFromDb(int serverID) {
         return FAILURE;
     serverData->setOccupied(false);
     if (serverData->getOs()) {
-        windowsServers.add(serverData);
+        serverData->setListPointer(windowsServers.add(serverData));
         return SUCCESS;
     }
-    linuxServers.add(serverData);
+    serverData->setListPointer(linuxServers.add(serverData));
     return SUCCESS;
 }
 

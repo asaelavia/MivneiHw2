@@ -8,12 +8,17 @@
 #include <iostream>
 
 using namespace std;
+
 template<typename T>
 class Node {
 public:
     Node *next;
     Node *prev;
     T data;
+
+    ~Node<T>() = default;
+
+    Node<T>() = default;
 };
 
 template<typename T>
@@ -27,7 +32,7 @@ public:
 
     ~LinkedList<T>();
 
-    void add(T data);
+    Node<T> *add(T data);
 
     T getFirst();
 
@@ -42,7 +47,6 @@ public:
 };
 
 
-
 template<typename T>
 LinkedList<T>::LinkedList() {
     length = 0;
@@ -52,8 +56,8 @@ LinkedList<T>::LinkedList() {
 
 template<typename T>
 LinkedList<T>::~LinkedList() {
-    Node <T> *next = head;
-    Node <T> *cur = nullptr;
+    Node<T> *next = head;
+    Node<T> *cur = nullptr;
     while (next != nullptr) {
         cur = next;
         next = next->next;
@@ -62,8 +66,8 @@ LinkedList<T>::~LinkedList() {
 }
 
 template<typename T>
-void LinkedList<T>::add(T data) {
-    Node <T> *node = new Node<T>();
+Node<T> *LinkedList<T>::add(T data) {
+    Node<T> *node = new Node<T>();
     if (getListSize() == 0) {
         this->head = node;
     } else {
@@ -73,7 +77,8 @@ void LinkedList<T>::add(T data) {
     node->data = data;
     node->next = nullptr;
     this->tail = node;
-    this->length++;
+    this->length = this->length + 1;
+    return node;
 }
 
 template<typename T>
@@ -83,10 +88,10 @@ T LinkedList<T>::getFirst() {
 
 template<typename T>
 void LinkedList<T>::removeFirst() {
-    Node <T> *first = this->head;
+    Node<T> *first = this->head;
     this->head = this->head->next;
     this->head->prev = nullptr;
-    this->length--;
+    this->length = this->length - 1;
     delete (first);
 }
 
@@ -101,7 +106,7 @@ bool LinkedList<T>::isListEmpty() {
 }
 
 template<typename T>
-void LinkedList<T>::removeNode(Node <T> *node) {
+void LinkedList<T>::removeNode(Node<T> *node) {
     if (((node->prev) == nullptr) && ((node->next) == nullptr)) {
         this->head = nullptr;
         this->tail = nullptr;

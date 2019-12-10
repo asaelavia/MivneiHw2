@@ -456,6 +456,7 @@ void AVLTree<T>::postOrderDelete(AVLNode<T> *node) {
     if(node->right){
         postOrderDelete(node->right);
     }
+    delete (node->data);
     delete node;
 }
 
