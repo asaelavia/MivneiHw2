@@ -39,13 +39,11 @@ public:
 StatusType
 DataCenterManager::AddDataCenter(int dataCenterID, int numOfServers) {
     try {
-        DataCenter *dc = new DataCenter(dataCenterID, numOfServers);
-
         AVLNode<DataCenter *> *node = farms.find(farms.getRoot(), dataCenterID);
         if (node != nullptr) {
-            delete dc;
             return FAILURE;
         }
+        DataCenter *dc = new DataCenter(dataCenterID, numOfServers);
         int *dc_id1 = new int(dataCenterID);
         int *dc_id2 = new int(dataCenterID);
         farms.insertNode(dataCenterID, dc);
@@ -74,9 +72,9 @@ StatusType DataCenterManager::RemoveDataCenter(int dataCenterID) {
     AVLNode<int *> *winNode = farmsWin.find(farmsWin.getRoot(),
                                             winServers + (1.0 / dataCenterID));
     if (linNode)
-    delete (linNode->data);
+        delete (linNode->data);
     if (winNode)
-    delete (winNode->data);
+        delete (winNode->data);
     delete (node->data);
     farms.deleteNode(dataCenterID);
     farmsLin.deleteNode(linServers + 1.0 / dataCenterID);
